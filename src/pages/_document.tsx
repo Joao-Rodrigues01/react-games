@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document"
+import Document, { Head, Html, Main, NextScript } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
 export default class MyDocument extends Document<any> {
@@ -33,16 +33,16 @@ export default class MyDocument extends Document<any> {
 
   render() {
     return (
-      <html>
+      <Html>
         <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&display=swap" rel="stylesheet" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }
