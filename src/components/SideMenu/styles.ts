@@ -2,7 +2,6 @@ import styled  from 'styled-components';
 
 export const Container = styled.div`
   width: 15.875rem;
-  height: 100vh;
   background: var(--secondary-background);
 `;
 
@@ -107,6 +106,9 @@ export const Footer = styled.footer`
    
    svg {
      margin-right: 0.5rem;
-   }
+    }
+  }
+  a:last-child {
+    margin-bottom: 0.3rem;
   }
 `;
