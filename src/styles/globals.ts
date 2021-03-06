@@ -20,9 +20,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 
-
 body, input, button, textarea {
   font: 500 1rem "Jost", sans-serif;
+  color: var(--text);
 	border: 0;
 }
 
