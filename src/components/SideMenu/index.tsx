@@ -27,11 +27,25 @@ export default function SideMenu() {
       <Section>
         <List>
           <ul>
-            <li>My Hub</li>  
-            <li>All Games</li>  
-            <li>Installed</li>  
-            <li>Not Installed</li>  
-            <li>+Add Games</li>  
+            <li>
+              <a href="#"> My Hub </a>
+            </li> 
+
+            <li>
+              <a href="#">All Games </a>
+            </li> 
+
+            <li>
+              <a href="#">Installed </a>
+            </li> 
+
+            <li>
+              <a href="#">Not Installed </a>
+            </li>  
+
+            <li>
+              <a href="#">+Add Games </a>
+            </li>  
           </ul>  
         </List> 
 

@@ -1,7 +1,8 @@
 import styled  from 'styled-components';
 
 export const Container = styled.div`
-  width: 15.875rem;
+  width: 18rem;
+  height: 100vh;
   background: var(--secondary-background);
 `;
 
@@ -27,7 +28,7 @@ export const Header = styled.header`
 export const Section = styled.section`
   width: 100%;
   height: 26.75rem;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   display: flex;
   flex-direction:column;
   justify-content: space-between;
@@ -45,8 +46,26 @@ export const List = styled.div`
   ul {
     li {
       color: var(--text);
-      margin-bottom: 1.1rem;
+      margin-bottom: 0.5rem;
+      width: 220px;
+      height: 2rem;
+      transition: background 0.4s;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background: #23253B;
+      }
+
+      &:first-child + li {
+        background: #23253B;
+      }
     }
+    
 
     li:last-child {
       color: var(--blue);
@@ -60,6 +79,7 @@ export const Tags = styled.div`
   color: var(--text);
   font-weight: 400;
   height: 13.75rem;
+  padding-left: 1rem;
 
   span {
     font-size: 0.9rem;
@@ -75,6 +95,7 @@ export const Tags = styled.div`
       align-items: center;
       justify-content: flex-start;
       margin-bottom: 1rem;
+    
 
       svg {
       margin-right: 0.5rem;

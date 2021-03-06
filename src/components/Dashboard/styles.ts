@@ -36,6 +36,10 @@ export const Header = styled.header`
         &:hover {
         background: #252942;
       }
+
+      &:first-child {
+        background: #252942;
+      }
     }
    
   }

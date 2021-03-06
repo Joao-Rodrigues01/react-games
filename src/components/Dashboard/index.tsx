@@ -75,7 +75,7 @@ export default function Dashboard() {
 
       <Content>
           {games.map(game => (
-           <div>
+           <div key={game.id}>
               <span className="game-name">
                 {game.name}
                 <FaPlayCircle size={24} />
