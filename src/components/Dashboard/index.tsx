@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, FormEvent } from 'react';
-import { FaPlayCircle, FaThLarge, FaThList } from 'react-icons/fa';
+import { FaArrowCircleDown, FaPlayCircle, FaThLarge, FaThList } from 'react-icons/fa';
 import { Container, Header, TitleContent, Content } from './styles';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -103,14 +103,27 @@ export default function Dashboard() {
 
       <Content>
           {games.map(game => (
-           <div key={game.id}>
-              <span className="game-name">
-                {game.name}
-                <FaPlayCircle size={24} />
-              </span>
-              <img  src={game.image_url} alt={game.name}/>
-          </div>
+            <>
+              <div  key={game.id}>
+                  <span className="game-name">
+                    {game.name}
+                    <FaPlayCircle size={24} />
+                  </span>
+                  <img  src={game.image_url} alt={game.name}/>
+              </div>
+
+            
+          </>
           ))}
+
+                <div className="game-not-installed">
+                  <span>
+                    <FaArrowCircleDown size={28} color="#FFF" />
+                  </span>
+                  <img src="https://static-cdn.jtvnw.net/ttv-boxart/Silent%20Hill%202.jpg" 
+                    alt="Silent Hill 2" 
+                  />
+                </div>
 
       </Content>
     </Container>

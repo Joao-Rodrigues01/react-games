@@ -57,26 +57,6 @@ export const TitleContent = styled.div`
   h1 {
     font-size: 1.8rem;
   }
-/* 
-  label {
-    font-weight: 400;
-  }
-
-  select {
-    font-size: 1rem;
-    font: 500 1rem "Jost", sans-serif;
-    background: none;
-    border: 0;
-    color: var(--text);
-    margin-right: 0.8rem;
-    cursor: pointer;
-  }
-
-  select option {
-    color: var(--text);
-    background: #3A4261;
-
-  } */
 
   form {
     width: 32.5rem;
@@ -117,12 +97,6 @@ div {
  
     transition: all 0.4s;
     cursor: pointer;
-
-    &:hover {
-      /* border: 2px solid #029AEB;
-      box-shadow: 0 0 5px #029AEB;
-      padding: 0.6rem; */
-    }
    
   }
 
@@ -167,6 +141,41 @@ div {
       opacity: 1;
       z-index: 2;
     }     
+}
+
+
+.game-not-installed {
+  position: relative;
+  width: 156px;
+  height: 228px;
+
+  span {
+    position: absolute;
+    z-index: 2;
+    bottom: 8%;
+    left: 42%;
+    cursor: pointer;
+
+  }
+    img {
+      width: 156px;
+      height: 225px;
+      border-radius: 0.8rem;
+  
+      transition: all 0.4s;
+      cursor: pointer;
+      filter: grayscale(1);
+      opacity: 0.4;
+    
+    &:hover{
+      opacity: 0.4;
+    }
+  }
+
+  &:hover {
+    padding: 0;
+  }
+
 }
 
  
