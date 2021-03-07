@@ -35,8 +35,6 @@ export default function Dashboard() {
     
   }, []);
 
-
-  
   const searchByPlatform = useCallback(async (data: FormEvent) => {
     const response = await api.get('/platform', {
       params: {
@@ -70,39 +68,31 @@ export default function Dashboard() {
           <h1>All Games ({games.length})</h1>
 
           <Form ref={formRef} onSubmit={searchByPlatform}>
-            {/* Fazer SUBMIT AO TROCAR DE PLATFORM */}
-              {/* <div>
-                <label>Showing:</label>
-                <select>
-                  <option >All Platforms</option>
-                  <option>Playstation</option>
-                  <option>Xbox</option>
-                  <option>Nintendo</option>
-                </select>
-              </div> */}
               <Select 
                 name="platform"
                 label="Showing:"
                 value={platform}
                 onChange={(e) => {
                   setPlatform(e.target.value);
-                  // formRef.current.submitForm();
                 }}
                 options={[
-                  { value: 'Multplatiform', label: 'All Platforms' },
+                  { value: 'Multiplatform', label: 'All Platforms' },
                   { value: 'Playstation', label: 'Playstation' },
                   { value: 'Xbox', label: 'Xbox' },
                   { value: 'Nintendo', label: 'Nintendo' },
                 ]}
               />
-              <div>
-                <label>Sort by:</label>
-                <select>
-                  <option>Last played</option>
-                  <option>Alphabetic</option>
-                </select>  
-              </div>
-            
+
+              <Select
+                name="sortby"
+                label="Sort by:"
+                value="sortby"
+                onChange={() => {}}
+                options={[
+                  { value: 'Last played', label: 'Last played' },
+                  { value: 'Alphabetic', label: 'Alphabetic' },
+                ]}>
+              </Select>
             <div>
                   <FaThLarge />
                   <FaThList />
