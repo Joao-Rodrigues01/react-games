@@ -2,8 +2,8 @@ import styled  from 'styled-components';
 
 export const Container = styled.div`
   width: 18rem;
-  height: 100vh;
   background: var(--secondary-background);
+  border-right: 1px solid #23253A;
 `;
 
 

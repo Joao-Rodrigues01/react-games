@@ -38,4 +38,22 @@ button {
   cursor: pointer;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 1px solid #717383;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #23253A;
+}
+
 `;
