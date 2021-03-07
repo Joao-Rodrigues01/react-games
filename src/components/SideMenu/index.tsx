@@ -91,7 +91,7 @@ export default function SideMenu() {
         </a>
         <a href="#">
           <IoMdGlobe size={18} color="#2CAB48"/>
-          Ready for Straming
+          Ready for Streaming
         </a>
       </Footer>
     </Container>

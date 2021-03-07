@@ -17,7 +17,7 @@ export const Header = styled.header`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-left: 2.5rem;
+    margin-left: 3.9rem;
 
     a {
       width: 4.6rem;
@@ -56,7 +56,7 @@ export const TitleContent = styled.div`
   h1 {
     font-size: 1.8rem;
   }
-
+/* 
   label {
     font-weight: 400;
   }
@@ -68,14 +68,16 @@ export const TitleContent = styled.div`
     border: 0;
     color: var(--text);
     margin-right: 0.8rem;
+    cursor: pointer;
   }
 
   select option {
     color: var(--text);
-    background: #0C0F28;
-  }
+    background: #3A4261;
 
-  div {
+  } */
+
+  form {
     width: 32.5rem;
 
     display: flex;
@@ -100,7 +102,7 @@ div {
   align-items: center;
   justify-content: center;
   
-  margin-right: 2rem; 
+  margin-right: 1rem; 
   margin-bottom: 2rem;  
   border-radius: 0.8rem;
   border: 2px solid #0C0F28;

@@ -1,14 +1,14 @@
+import { useCallback, useEffect, useRef, useState, FormEvent } from 'react';
 import { FaPlayCircle, FaThLarge, FaThList } from 'react-icons/fa';
 import { Container, Header, TitleContent, Content } from './styles';
+import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 
 import SearchBar from '../SearchBar';
 import Profile from '../Profile';
+import Select from '../Select';
 
 import api from '../../services/api';
-
-import { useEffect, useState } from 'react';
-import { FiPlayCircle } from 'react-icons/fi';
-
 
 interface Game {
   id: string;
@@ -18,13 +18,36 @@ interface Game {
 }
 
 export default function Dashboard() {
+  const formRef= useRef<FormHandles>(null);
+  
   const [games, setGames] = useState<Game[]>([]);
+  const [platform, setPlatform] = useState('');
 
-  useEffect( ()=> {
+
+  useEffect(()=> {
+    formRef.current.submitForm();
+  }, [platform]);
+
+  useEffect(()=> {
     api.get<Game[]>('/games').then(response=> {
       setGames(response.data);
     });
+    
   }, []);
+
+
+  
+  const searchByPlatform = useCallback(async (data: FormEvent) => {
+    const response = await api.get('/platform', {
+      params: {
+        platform,
+      }
+    });
+    
+    setGames(response.data);
+  }, [platform]);
+  
+  
 
   return ( 
     <Container>
@@ -46,17 +69,32 @@ export default function Dashboard() {
       <TitleContent>
           <h1>All Games ({games.length})</h1>
 
-          <div>
-              <div>
+          <Form ref={formRef} onSubmit={searchByPlatform}>
+            {/* Fazer SUBMIT AO TROCAR DE PLATFORM */}
+              {/* <div>
                 <label>Showing:</label>
                 <select>
-                  <option>All Platforms</option>
+                  <option >All Platforms</option>
                   <option>Playstation</option>
                   <option>Xbox</option>
                   <option>Nintendo</option>
                 </select>
-              </div>
-              
+              </div> */}
+              <Select 
+                name="platform"
+                label="Showing:"
+                value={platform}
+                onChange={(e) => {
+                  setPlatform(e.target.value);
+                  // formRef.current.submitForm();
+                }}
+                options={[
+                  { value: 'Multplatiform', label: 'All Platforms' },
+                  { value: 'Playstation', label: 'Playstation' },
+                  { value: 'Xbox', label: 'Xbox' },
+                  { value: 'Nintendo', label: 'Nintendo' },
+                ]}
+              />
               <div>
                 <label>Sort by:</label>
                 <select>
@@ -70,7 +108,7 @@ export default function Dashboard() {
                   <FaThList />
             </div>
                        
-          </div>
+          </Form>
       </TitleContent>
 
       <Content>
