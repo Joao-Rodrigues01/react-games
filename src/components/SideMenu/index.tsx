@@ -11,8 +11,12 @@ import { FaTag } from 'react-icons/fa';
 import { IoMdGlobe } from 'react-icons/io';
 
 import { Container, Header, List, Section, Tags, Footer } from './styles';
+import React from 'react';
 
 export default function SideMenu() {
+
+
+
   return ( 
     <Container>
       <Header>

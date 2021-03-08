@@ -1,27 +1,34 @@
-import { useCallback, useEffect, useRef, useState, FormEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, FormEvent, useContext } from 'react';
 import { FaArrowCircleDown, FaPlayCircle, FaThLarge, FaThList } from 'react-icons/fa';
 import { Container, Header, TitleContent, Content } from './styles';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import { DashboardContext } from '../../contexts/DashboardContext';
 
 import SearchBar from '../SearchBar';
 import Profile from '../Profile';
 import Select from '../Select';
 
+
 import api from '../../services/api';
 
 interface Game {
-  id: string;
+  id?: string;
   name: string;
-  image_url: string;
-  platform: string;
+  image_url?: string;
+  platform?: string;
+  is_installed?: boolean;
+  // arrumar esses ?
 }
 
 export default function Dashboard() {
+  const { handleModal } = useContext(DashboardContext);
+
   const formRef= useRef<FormHandles>(null);
   
   const [games, setGames] = useState<Game[]>([]);
   const [platform, setPlatform] = useState('');
+  // const [searchedGames, setSearchedGames] = useState('');
 
 
   useEffect(()=> {
@@ -45,7 +52,10 @@ export default function Dashboard() {
     setGames(response.data);
   }, [platform]);
   
-  
+  // const searchByName = useCallback(async (data: FormEvent) => {
+  //   const response = await api.get('/')
+  // }, []);
+  // FAZER ROTA DE PESQUISAR
 
   return ( 
     <Container>
@@ -58,10 +68,15 @@ export default function Dashboard() {
           <a>Settings</a>
         </div>
 
-        <div>
-            <SearchBar />
+        <Form ref={formRef} onSubmit={() => {}}>
+            <SearchBar 
+              name="search-game"
+              onChange={(e) => {
+                
+              }}
+            />
             <Profile />
-        </div>
+        </Form>
       </Header>
 
       <TitleContent>
@@ -101,30 +116,40 @@ export default function Dashboard() {
           </Form>
       </TitleContent>
 
+     
+      
       <Content>
           {games.map(game => (
-            <>
-              <div  key={game.id}>
+            
+               game.is_installed ? (
+
+                <div  key={game.id}>
                   <span className="game-name">
                     {game.name}
                     <FaPlayCircle size={24} />
                   </span>
                   <img  src={game.image_url} alt={game.name}/>
-              </div>
+                </div>
 
-            
-          </>
-          ))}
+              ) : (
 
-                <div className="game-not-installed">
+                <div 
+                  key={game.id} 
+                  className="game-not-installed" 
+                  onClick={() => handleModal(true, game.name)}
+                >
                   <span>
                     <FaArrowCircleDown size={28} color="#FFF" />
                   </span>
-                  <img src="https://static-cdn.jtvnw.net/ttv-boxart/Silent%20Hill%202.jpg" 
-                    alt="Silent Hill 2" 
+                  <img src={game.image_url}
+                    alt={game.name} 
                   />
-                </div>
+              </div>
+              )
+          
+          ))}
 
+    
       </Content>
     </Container>
   )

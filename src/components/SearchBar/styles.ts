@@ -13,7 +13,7 @@ export const Input = styled.div`
 
     input {
       width: 9rem;
-      background: var(--primary-background);
+      background: inherit;
       outline: none;
 
       ::placeholder {

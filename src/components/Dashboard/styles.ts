@@ -13,7 +13,7 @@ export const Header = styled.header`
   justify-content: space-between;
 
 
-  div {
+  div, form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,7 +86,6 @@ div {
   margin-right: 1rem; 
   margin-bottom: 2rem;  
   border-radius: 0.8rem;
-  border: 2px solid #0C0F28;
   transition: all 0.4s;
 
 
@@ -146,8 +145,6 @@ div {
 
 .game-not-installed {
   position: relative;
-  width: 156px;
-  height: 228px;
 
   span {
     position: absolute;
@@ -166,15 +163,12 @@ div {
       cursor: pointer;
       filter: grayscale(1);
       opacity: 0.4;
-    
-    &:hover{
-      opacity: 0.4;
-    }
+  
   }
 
-  &:hover {
+  /* &:hover {
     padding: 0;
-  }
+  } */
 
 }
 

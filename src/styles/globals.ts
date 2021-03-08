@@ -26,6 +26,10 @@ body, input, button, textarea {
 	border: 0;
 }
 
+svg {
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
 }
