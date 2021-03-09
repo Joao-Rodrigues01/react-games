@@ -115,7 +115,7 @@ div {
       bottom: 2%;
       max-width: 125px;
       left: 18%;
-      transition: opacity 0.4s;
+      transition: all 0.4s;
       opacity: 0;
       
 

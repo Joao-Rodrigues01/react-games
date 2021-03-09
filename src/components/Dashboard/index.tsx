@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, FormEvent, useContext } from 'react';
 import { FaArrowCircleDown, FaPlayCircle, FaThLarge, FaThList } from 'react-icons/fa';
 import { Container, Header, TitleContent, Content } from './styles';
+import { FaSearch } from 'react-icons/fa';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { DashboardContext } from '../../contexts/DashboardContext';
@@ -13,12 +14,11 @@ import Select from '../Select';
 import api from '../../services/api';
 
 interface Game {
-  id?: string;
+  id: string;
   name: string;
-  image_url?: string;
-  platform?: string;
-  is_installed?: boolean;
-  // arrumar esses ?
+  image_url: string;
+  platform: string;
+  is_installed: boolean;
 }
 
 export default function Dashboard() {
@@ -26,9 +26,9 @@ export default function Dashboard() {
 
   const formRef= useRef<FormHandles>(null);
   
-  // const [games, setGames] = useState<Game[]>([]);
+
   const [platform, setPlatform] = useState('');
-  // const [searchedGames, setSearchedGames] = useState('');
+  const [searchedGames, setSearchedGames] = useState('');
 
 
   useEffect(()=> {
@@ -52,9 +52,15 @@ export default function Dashboard() {
     setGames(response.data);
   }, [platform]);
   
-  // const searchByName = useCallback(async (data: FormEvent) => {
-  //   const response = await api.get('/')
-  // }, []);
+  const searchByName = useCallback(async (data: FormEvent) => {
+
+      if(searchedGames === '') {
+        return;
+      }
+    const response = await api.get(`/games/name/?name=${searchedGames}`);
+
+    setGames([response.data]);
+  }, [searchedGames]);
   // FAZER ROTA DE PESQUISAR
 
   return ( 
@@ -68,13 +74,20 @@ export default function Dashboard() {
           <a>Settings</a>
         </div>
 
-        <Form ref={formRef} onSubmit={() => {}}>
+        <Form ref={formRef} onSubmit={searchByName}>
             <SearchBar 
               name="search-game"
               onChange={(e) => {
-                
+                setSearchedGames(e.target.value);
               }}
-            />
+              required
+            >
+              <FaSearch 
+                size={14} 
+                color="#B9B9C4" 
+                onClick={searchByName}
+              />
+            </SearchBar>
             <Profile />
         </Form>
       </Header>

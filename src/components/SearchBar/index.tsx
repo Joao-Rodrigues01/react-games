@@ -1,14 +1,14 @@
-import { InputHTMLAttributes, useEffect, useRef } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
 import { Input } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
+  children: ReactNode;
 }
 
-export default function SearchBar({ name, ...rest }: InputProps) {
+export default function SearchBar({ name, children,...rest }: InputProps) {
   const inpuRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
 
@@ -22,7 +22,7 @@ export default function SearchBar({ name, ...rest }: InputProps) {
 
   return (
       <Input>
-        <FaSearch size={14} color="#B9B9C4"/>
+        {children}
         <input 
           ref={inpuRef} 
           id={name}

@@ -13,7 +13,7 @@ export const Container = styled.div<ContainerProps>`
     position: fixed;
     bottom: ${props => props.isDownloadModalOpen ? '0' : '-100%'};
     z-index: 3;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     transition: bottom 0.4s;
 `;
 
