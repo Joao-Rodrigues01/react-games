@@ -59,9 +59,9 @@ export default function Dashboard() {
       }
     const response = await api.get(`/games/name/?name=${searchedGames}`);
 
-    setGames([response.data]);
+    setGames(response.data);
   }, [searchedGames]);
-  // FAZER ROTA DE PESQUISAR
+
 
   return ( 
     <Container>

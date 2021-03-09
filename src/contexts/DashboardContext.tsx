@@ -16,12 +16,12 @@ interface DashboardProviderProps {
 }
 
 interface Game {
-  id?: string;
+  id: string;
   name: string;
-  image_url?: string;
-  platform?: string;
-  is_installed?: boolean;
-  // arrumar esses ?
+  image_url: string;
+  platform: string;
+  is_installed: boolean;
+
 }
 
 export const DashboardContext = createContext({} as DashboardContextData);
