@@ -22,11 +22,11 @@ interface Game {
 }
 
 export default function Dashboard() {
-  const { handleModal } = useContext(DashboardContext);
+  const { handleModal, games, setGames } = useContext(DashboardContext);
 
   const formRef= useRef<FormHandles>(null);
   
-  const [games, setGames] = useState<Game[]>([]);
+  // const [games, setGames] = useState<Game[]>([]);
   const [platform, setPlatform] = useState('');
   // const [searchedGames, setSearchedGames] = useState('');
 
