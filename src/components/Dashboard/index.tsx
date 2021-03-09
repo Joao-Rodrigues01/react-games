@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState, FormEvent, useContext } from 'react';
-import { FaArrowCircleDown, FaPlayCircle, FaThLarge, FaThList } from 'react-icons/fa';
 import { Container, Header, TitleContent, Content } from './styles';
-import { FaSearch } from 'react-icons/fa';
+
+import { FaThLarge, FaThList, FaSearch } from 'react-icons/fa';
+import { IoArrowDownCircle, IoPlayCircle } from 'react-icons/io5';
+
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { DashboardContext } from '../../contexts/DashboardContext';
@@ -139,7 +141,7 @@ export default function Dashboard() {
                 <div  key={game.id}>
                   <span className="game-name">
                     {game.name}
-                    <FaPlayCircle size={24} />
+                    <IoPlayCircle size={32} />
                   </span>
                   <img  src={game.image_url} alt={game.name}/>
                 </div>
@@ -152,7 +154,7 @@ export default function Dashboard() {
                   onClick={() => handleModal(true, game.name)}
                 >
                   <span>
-                    <FaArrowCircleDown size={28} color="#FFF" />
+                    <IoArrowDownCircle size={32} color="#FFF" />
                   </span>
                   <img src={game.image_url}
                     alt={game.name} 

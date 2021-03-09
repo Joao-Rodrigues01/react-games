@@ -75,6 +75,7 @@ export const Content = styled.main`
   margin-left: 3.7rem;
   margin-top: 2rem;
 
+
 div {
   position: relative;
   width: 172px;
@@ -113,8 +114,8 @@ div {
       font-size: 1rem;
 
       bottom: 2%;
-      max-width: 125px;
-      left: 18%;
+      max-width: 100px;
+      left: 22%;
       transition: all 0.4s;
       opacity: 0;
       
@@ -122,8 +123,9 @@ div {
       svg {
         margin-top: 0.5rem;
       }
-
     }
+
+  
 
     &:hover {
       border: 2px solid #029AEB;
@@ -149,8 +151,8 @@ div {
   span {
     position: absolute;
     z-index: 2;
-    bottom: 8%;
-    left: 42%;
+    bottom: 12%;
+    left: 38%;
     cursor: pointer;
 
   }
@@ -171,6 +173,5 @@ div {
   } */
 
 }
-
  
 `;
