@@ -3,7 +3,7 @@ import  styled  from 'styled-components';
 
 export const Container = styled.div`
   background: linear-gradient(to right, var(--primary-background), #09091C );
-  
+  width: 100%;
 `;
 
 export const Header = styled.header`
