@@ -25,7 +25,6 @@ body, input, button, textarea {
   color: var(--text);
 	border: 0;
 }
-
 svg {
   cursor: pointer;
 }
