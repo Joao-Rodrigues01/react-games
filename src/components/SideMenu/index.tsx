@@ -1,3 +1,6 @@
+import Link from 'next/link';
+// import { useRouter } from 'next/router';
+
 import { 
   FiArrowLeft, 
   FiArrowRight, 
@@ -15,7 +18,7 @@ import React from 'react';
 
 export default function SideMenu() {
 
-
+  // const router = useRouter();
 
   return ( 
     <Container>
@@ -32,19 +35,19 @@ export default function SideMenu() {
         <List>
           <ul>
             <li>
-              <a href="#"> My Hub </a>
+              <Link href="#"> My Hub </Link>
             </li> 
 
             <li>
-              <a href="#">All Games </a>
+              <Link href="/">All Games </Link>
             </li> 
 
             <li>
-              <a href="#">Installed </a>
+              <Link href="/installed">Installed </Link>
             </li> 
 
             <li>
-              <a href="#">Not Installed </a>
+              <Link href="/not-installed">Not Installed </Link>
             </li>  
 
             <li>

@@ -61,9 +61,14 @@ export const List = styled.div`
         background: #23253B;
       }
 
-      &:first-child + li {
+       &:first-child + li {
         background: #23253B;
-      }
+      } 
+
+    }
+
+     .active {
+      background: #23253B;
     }
     
 
