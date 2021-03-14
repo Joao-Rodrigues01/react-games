@@ -37,7 +37,7 @@ Este layout foi inspirado em um projeto do dribble.
 <strong>Em breve layout para mobile!</strong>
 ## 📁 Scripts
 
-Encontre o servidor nesse repositório: 
+Encontre o servidor nesse repositório: https://github.com/Joao-Rodrigues01/api-react-games
 
 Para rodar a aplicação web utilize:
 - yarn dev
