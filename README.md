@@ -5,9 +5,7 @@
   
   <img 
     src="./.github/react-games.png" 
-    alt="imagem do projeto react games" 
-    width="800px" 
-    height="420px"
+    alt="imagem do projeto react games"
   />
 
 ## 🚀 Tecnologias
